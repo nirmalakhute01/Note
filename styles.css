@@ -1,0 +1,201 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: rgba(32, 75, 218, 0.014);
+    color: rgb(19, 18, 18);
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    flex: 1 0 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.theme-switcher button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(232, 225, 245, 0.452);/* Set your desired color here */
+    color: black;
+}
+.note-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.note-input textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #73dbe9;
+    resize: none;
+    background-color: rgba(143, 179, 194, 0.267);
+    color: inherit;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.note-input button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: skyblue;
+    color: rgba(14, 13, 13, 0.966);
+    border-radius: 5px;
+    align-self: flex-end;
+}
+
+.notes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(135, 207, 235, 0.308);
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow-y: auto; /* Y-axis (vertical) scrolling enable */
+    max-height: 200px; /* Restrict height */
+    transition: background-color 0.3s, color 0.3s;
+    scrollbar-width: thin; /* Thin scrollbar for modern browsers */
+}
+
+/* Optional: For better aesthetics of scrollbar in Webkit browsers */
+.note::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+}
+
+.note::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+.note::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7); /* Scrollbar thumb hover color */
+}
+
+
+
+body.dark-mode .note {
+    background-color: rgba(255, 255, 0, 0.055);
+    color: rgba(248, 246, 242, 0.596);
+    border: 3px solid;
+}
+
+.note .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.note .button-group button {
+    flex: 1;
+    padding: 0.2rem;
+    /* padding: 10px; */
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.note .button-group button:first-child {
+    background-color: lightblue;
+    color: black;
+}
+
+.note .button-group button:last-child {
+    background-color: pink;
+    color: black;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .note-input textarea {
+        height: 80px;
+        font-size: 16px;
+    }
+
+    .note-input button {
+        align-self: stretch;
+    }
+
+    .notes-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .theme-switcher button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .note-input textarea {
+        font-size: 14px;
+    }
+
+    .note {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .note .button-group button {
+        padding: 5px;
+        font-size: 12px;
+    }
+}
